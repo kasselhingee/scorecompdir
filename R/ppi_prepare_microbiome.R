@@ -166,3 +166,11 @@ ppi_microbiomedata_SVCTP <- function(){
     p = ncol(propreal)
   ))
 }
+
+download_microbiome_data <- function(){
+  zipfile <- paste0(tempfile(), ".zip")
+  download.file("https://www.tandfonline.com/doi/suppl/10.1080/01621459.2021.2016422/suppl_file/uasa_a_2016422_sm0270.zip", zipfile)
+  datadir <- tempdir()
+  unzip(zipfile, "Online Supp/microbiome_data.xlsx", exdir = datadir, junkpaths = TRUE)
+
+}
